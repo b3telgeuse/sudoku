@@ -4,6 +4,8 @@ import time
 pygame.font.init()
 
 
+
+
 class Grid:
     board = [
         [0, 2, 0, 0, 3, 0, 4, 8, 9],
@@ -16,6 +18,7 @@ class Grid:
         [0, 5, 0, 0, 2, 0, 0, 0, 6],
         [2, 0, 0, 0, 0, 1, 0, 4, 0]
     ]
+
 
     def __init__(self, rows, cols, width, height, win):
         self.rows = rows
@@ -57,8 +60,8 @@ class Grid:
                 thick = 4
             else:
                 thick = 1
-            pygame.draw.line(self.win, (0,0,0), (0, i*gap), (self.width, i*gap), thick)
-            pygame.draw.line(self.win, (0, 0, 0), (i * gap, 0), (i * gap, self.height), thick)
+            pygame.draw.line(self.win, (39, 48, 67), (0, i*gap), (self.width, i*gap), thick)
+            pygame.draw.line(self.win, (39, 48, 67), (i * gap, 0), (i * gap, self.height), thick)
 
         # Draw Cubes
         for i in range(self.rows):
@@ -237,7 +240,7 @@ def redraw_window(win, board, time, strikes):
     # Draw Strikes
     fnt = pygame.font.SysFont("times", 30)
     text = fnt.render("X " * strikes, 1, (255, 0, 0))
-    win.blit(text, (20, 560))
+    win.blit(text, (20, 575))
     # Draw grid and board
     board.draw()
 
@@ -252,7 +255,7 @@ def format_time(secs):
 
 
 def main():
-    win = pygame.display.set_mode((570,620))
+    win = pygame.display.set_mode((570,615))
     pygame.display.set_caption("Sudoku")
     board = Grid(9, 9, 570, 570, win)
     key = None
@@ -260,6 +263,8 @@ def main():
     start = time.time()
     strikes = 0
     while run:
+
+
 
         play_time = round(time.time() - start)
 
